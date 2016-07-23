@@ -13,20 +13,30 @@ public class PlayerElementControllerScript : MonoBehaviour {
 
 	public Element currentElement = Element.None;
 	private Renderer playerRenderer;
+	private LayerMask fireLayer;
+	private LayerMask waterLayer;
 
 	// Use this for initialization
 	void Start () {
 		playerRenderer = GetComponent<Renderer> ();
+		fireLayer = LayerMask.NameToLayer ("Fire");
+		waterLayer = LayerMask.NameToLayer ("Water");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton ("Fire Element"))
+		if (Input.GetButton ("Fire Element")) {
 			currentElement = Element.Fire;
-		else if (Input.GetButton ("Water Element"))
+			Physics.IgnoreLayerCollision (gameObject.layer, fireLayer, true);
+		} else if (Input.GetButton ("Water Element")) {
 			currentElement = Element.Water;
-		else
+			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, true);
+		}
+		else {
 			currentElement = Element.None;
+			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, false);
+			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, false);
+		}
 
 		playerRenderer.material.color = elementColor();
 	}
