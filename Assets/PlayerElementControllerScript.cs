@@ -37,7 +37,7 @@ public class PlayerElementControllerScript : MonoBehaviour {
 		}
 		else {
 			currentElement = Element.None;
-			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, false);
+			Physics.IgnoreLayerCollision (gameObject.layer, fireLayer, false);
 			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, false);
 		}
 
@@ -54,7 +54,7 @@ public class PlayerElementControllerScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision collision) {
-		if (collision.gameObject.layer == waterLayer && (playerCollider.bounds.Intersects(collision.collider.bounds))) {
+		if ((collision.gameObject.layer == fireLayer || collision.gameObject.layer == waterLayer) && (playerCollider.bounds.Intersects(collision.collider.bounds))) {
 			ResetPlayerPosition ();
 		}
 	}
