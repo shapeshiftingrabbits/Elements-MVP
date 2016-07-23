@@ -4,14 +4,14 @@ using System.Collections;
 [RequireComponent (typeof (Renderer))]
 public class PlayerElementControllerScript : MonoBehaviour {
 
-	enum Elements
+	public enum Element
 	{
-		None = 0,
-		Water = 1,
-		Fire = 2
+		None,
+		Water,
+		Fire
 	}
 
-	public int currentElement = 0;
+	public Element currentElement = Element.None;
 	private Renderer playerRenderer;
 
 	// Use this for initialization
@@ -22,19 +22,19 @@ public class PlayerElementControllerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButton ("Fire Element"))
-			currentElement = 1;
+			currentElement = Element.Fire;
 		else if (Input.GetButton ("Water Element"))
-			currentElement = 2;
+			currentElement = Element.Water;
 		else
-			currentElement = 0;
+			currentElement = Element.None;
 
 		playerRenderer.material.color = elementColor();
 	}
 
 	Color elementColor () {
-		if (currentElement == 1)
+		if (currentElement == Element.Water)
 			return Color.blue;
-		else if (currentElement == 2)
+		else if (currentElement == Element.Fire)
 			return Color.red;
 		else
 			return Color.grey;
