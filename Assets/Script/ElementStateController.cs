@@ -34,6 +34,13 @@ public class ElementStateController : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter (Collider other){
+		if (other.gameObject.CompareTag (PICKUP_TAG)) {
+			other.gameObject.SetActive(false);
+			count++;
 
+			setCountText ();
+		}
+	}
 
 }
