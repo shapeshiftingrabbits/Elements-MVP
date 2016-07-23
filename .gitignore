@@ -28,3 +28,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Ignore Autotosave files
+/Assets/Editor/AutoSaves/*.unity
+/Assets/Editor/AutoSaves/*.unity.meta
