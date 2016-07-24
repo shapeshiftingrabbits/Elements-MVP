@@ -5,18 +5,18 @@ using System.Collections;
 [RequireComponent (typeof (PlayerElementControllerScript))]
 public class PlayerOverheatScript : MonoBehaviour {
 	
-	public PlayerElementControllerScript elementControllerScript;
-
 	public float currentOverheat = 0f;
 	private float overheatLimit = 100f;
 	private float overheatIncreaseSpeed = 50f;
 	private float overheatDecreaseSpeed = 50f;
 
 	private PlayerControllerScript playerControllerScript;
+	private PlayerElementControllerScript elementControllerScript;
 
 	// Use this for initialization
 	void Start () {
 		playerControllerScript = GetComponent<PlayerControllerScript> ();
+		elementControllerScript = GetComponent<PlayerElementControllerScript> ();
 	}
 	
 	// Update is called once per frame
