@@ -36,13 +36,13 @@ public class PlayerOverheatScript : MonoBehaviour {
 		}
 	}
 
-	void IncreaseOverheat () {
-		currentOverheat += overheatIncreaseSpeed * Time.deltaTime;
+	void IncreaseOverheat (float multiplier) {
+		currentOverheat += overheatIncreaseSpeed * multiplier;
 	}
 
-	void DecreaseOverheat () {
+	void DecreaseOverheat (float multiplier) {
 		if (currentOverheat >= 0f) {
-			currentOverheat -= overheatDecreaseSpeed * Time.deltaTime;
+			currentOverheat -= overheatDecreaseSpeed * multiplier;
 		}
 
 		if (currentOverheat < 0f) {

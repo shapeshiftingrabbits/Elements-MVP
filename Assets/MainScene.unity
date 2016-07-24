@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be30429c87b8a7346b47cfbc497f74b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementControllerScript: {fileID: 260185317}
+  currentOverheat: 0
 --- !u!1 &261248850
 GameObject:
   m_ObjectHideFlags: 0
