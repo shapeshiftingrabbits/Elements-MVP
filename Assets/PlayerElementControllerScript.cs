@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent (typeof (Renderer))]
 [RequireComponent (typeof (Collider))]
@@ -11,6 +12,13 @@ public class PlayerElementControllerScript : MonoBehaviour {
 		Water,
 		Fire
 	}
+
+	private Dictionary<Element, Color> elementColors = new Dictionary<Element, Color>()
+	{
+		{Element.None, Color.grey},
+		{Element.Water, Color.blue},
+		{Element.Fire, Color.red}
+	};
 
 	public Element currentElement = Element.None;
 	private Renderer playerRenderer;
@@ -45,10 +53,8 @@ public class PlayerElementControllerScript : MonoBehaviour {
 	}
 
 	Color elementColor () {
-		if (currentElement == Element.Water)
-			return Color.blue;
-		else if (currentElement == Element.Fire)
-			return Color.red;
+		if (elementColors.ContainsKey(currentElement))
+			return elementColors[currentElement];
 		else
 			return Color.grey;
 	}
