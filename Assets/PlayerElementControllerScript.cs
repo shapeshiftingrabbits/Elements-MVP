@@ -38,18 +38,26 @@ public class PlayerElementControllerScript : MonoBehaviour {
 	void Update () {
 		if (Input.GetButton ("Fire Element")) {
 			currentElement = Element.Fire;
-			Physics.IgnoreLayerCollision (gameObject.layer, fireLayer, true);
 		} else if (Input.GetButton ("Water Element")) {
 			currentElement = Element.Water;
-			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, true);
 		}
 		else {
 			currentElement = Element.None;
-			Physics.IgnoreLayerCollision (gameObject.layer, fireLayer, false);
-			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, false);
 		}
 
 		playerRenderer.material.color = elementColor();
+	}
+
+	void FixedUpdate () {
+		if (currentElement == Element.Fire) {
+			Physics.IgnoreLayerCollision (gameObject.layer, fireLayer, true);
+		} else if (currentElement == Element.Water) {
+			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, true);
+		}
+		else {
+			Physics.IgnoreLayerCollision (gameObject.layer, fireLayer, false);
+			Physics.IgnoreLayerCollision (gameObject.layer, waterLayer, false);
+		}
 	}
 
 	Color elementColor () {
