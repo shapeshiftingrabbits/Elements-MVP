@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 [RequireComponent (typeof (Renderer))]
 [RequireComponent (typeof (Collider))]
+[RequireComponent (typeof (PlayerControllerScript))]
 public class PlayerElementControllerScript : MonoBehaviour {
 
 	public enum Element
@@ -23,6 +24,7 @@ public class PlayerElementControllerScript : MonoBehaviour {
 	public Element currentElement = Element.None;
 	private Renderer playerRenderer;
 	private Collider playerCollider;
+	private PlayerControllerScript playerControllerScript;
 	private LayerMask fireLayer;
 	private LayerMask waterLayer;
 
@@ -30,6 +32,7 @@ public class PlayerElementControllerScript : MonoBehaviour {
 	void Start () {
 		playerRenderer = GetComponent<Renderer> ();
 		playerCollider = GetComponent<Collider> ();
+		playerControllerScript = GetComponent<PlayerControllerScript> ();
 		fireLayer = LayerMask.NameToLayer ("Fire");
 		waterLayer = LayerMask.NameToLayer ("Water");
 	}
@@ -69,11 +72,7 @@ public class PlayerElementControllerScript : MonoBehaviour {
 
 	void OnCollisionEnter (Collision collision) {
 		if ((collision.gameObject.layer == fireLayer || collision.gameObject.layer == waterLayer) && (playerCollider.bounds.Intersects(collision.collider.bounds))) {
-			ResetPlayerPosition ();
+			playerControllerScript.ResetPosition ();
 		}
-	}
-
-	void ResetPlayerPosition () {
-		transform.position = new Vector3 (-4f, 0.5f, 4f);
 	}
 }

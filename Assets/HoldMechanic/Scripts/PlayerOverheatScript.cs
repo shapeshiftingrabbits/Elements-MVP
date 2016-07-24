@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (PlayerControllerScript))]
 [RequireComponent (typeof (PlayerElementControllerScript))]
 public class PlayerOverheatScript : MonoBehaviour {
-
+	
 	public PlayerElementControllerScript elementControllerScript;
 
 	public float currentOverheat = 0f;
@@ -11,9 +12,11 @@ public class PlayerOverheatScript : MonoBehaviour {
 	private float overheatIncreaseSpeed = 50f;
 	private float overheatDecreaseSpeed = 50f;
 
+	private PlayerControllerScript playerControllerScript;
+
 	// Use this for initialization
 	void Start () {
-	
+		playerControllerScript = GetComponent<PlayerControllerScript> ();
 	}
 	
 	// Update is called once per frame
@@ -28,13 +31,9 @@ public class PlayerOverheatScript : MonoBehaviour {
 		}
 
 		if (currentOverheat >= overheatLimit) {
-			ResetPlayerPosition ();
+			playerControllerScript.ResetPosition ();
 			currentOverheat = 0f;
 		}
-	}
-
-	void ResetPlayerPosition () {
-		transform.position = new Vector3 (-4f, 0.5f, 4f);
 	}
 
 	void IncreaseOverheat () {
