@@ -22,12 +22,12 @@ public class PlayerOverheatScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (elementControllerScript.currentElement == PlayerElementControllerScript.Element.Fire) {
-			IncreaseOverheat ();
+			IncreaseOverheat (Time.deltaTime);
 		} else if (elementControllerScript.currentElement == PlayerElementControllerScript.Element.Water) {
 			currentOverheat = 0f;
 		}
 		else {
-			DecreaseOverheat ();
+			DecreaseOverheat (Time.deltaTime);
 		}
 
 		if (currentOverheat >= overheatLimit) {
