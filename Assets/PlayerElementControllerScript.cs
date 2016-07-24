@@ -64,7 +64,7 @@ public class PlayerElementControllerScript : MonoBehaviour {
 		if (elementColors.ContainsKey(currentElement))
 			return elementColors[currentElement];
 		else
-			return Color.grey;
+			return elementColors[Element.None];
 	}
 
 	void OnCollisionEnter (Collision collision) {
