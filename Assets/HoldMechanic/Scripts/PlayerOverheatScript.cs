@@ -31,7 +31,7 @@ public class PlayerOverheatScript : MonoBehaviour {
 		}
 
 		if (currentOverheat >= overheatLimit) {
-			playerControllerScript.ResetPosition ();
+			playerControllerScript.Die ();
 			currentOverheat = 0f;
 		}
 	}

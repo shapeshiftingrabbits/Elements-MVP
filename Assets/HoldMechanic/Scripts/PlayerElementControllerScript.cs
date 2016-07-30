@@ -72,7 +72,7 @@ public class PlayerElementControllerScript : MonoBehaviour {
 
 	void OnCollisionEnter (Collision collision) {
 		if ((collision.gameObject.layer == fireLayer || collision.gameObject.layer == waterLayer) && (playerCollider.bounds.Intersects(collision.collider.bounds))) {
-			playerControllerScript.ResetPosition ();
+			playerControllerScript.Die ();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent (typeof (Transform))]
 [RequireComponent (typeof (Rigidbody))]
@@ -34,5 +35,9 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	public void ResetPosition () {
 		playerTransform.position = new Vector3 (-4f, 0.5f, 4f);
+	}
+
+	public void Die () {
+		SceneManager.LoadScene ("MainScene");
 	}
 }
