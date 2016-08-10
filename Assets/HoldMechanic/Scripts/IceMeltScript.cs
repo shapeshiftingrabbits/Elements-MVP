@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent (typeof (Transform))]
 public class IceMeltScript : MonoBehaviour {
 
 	private float startingResistance = 1.0f;
@@ -8,12 +10,10 @@ public class IceMeltScript : MonoBehaviour {
 	private float meltAmout = 0.1f;
 	private float meltTick = 0.25f;
 	private float elapsedTime = 0f;
-	private Transform originalTransform;
 
 	// Use this for initialization
 	void Start () {
 		currentResistance = startingResistance;
-		originalTransform = transform;
 	}
 	
 	// Update is called once per frame
@@ -28,8 +28,7 @@ public class IceMeltScript : MonoBehaviour {
 			currentResistance -= meltAmout;
 			elapsedTime = 0f;
 
-			Transform newTransform = originalTransform;
-			newTransform.localScale = newTransform.localScale * currentResistance;
+			gameObject.transform.localScale = gameObject.transform.localScale * currentResistance;
 		}
 	}
 }
