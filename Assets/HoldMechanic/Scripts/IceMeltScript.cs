@@ -10,6 +10,7 @@ public class IceMeltScript : MonoBehaviour {
 	private float meltAmout = 0.1f;
 	private float meltTick = 0.25f;
 	private float elapsedTime = 0f;
+	private float destroyThreshold = 0.10f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,10 +26,18 @@ public class IceMeltScript : MonoBehaviour {
 		elapsedTime += deltaTime;
 
 		if (elapsedTime >= meltTick) {
-			currentResistance -= meltAmout;
+			ReduceResistance ();
 			elapsedTime = 0f;
 
 			gameObject.transform.localScale = gameObject.transform.localScale * currentResistance;
+
+			if (gameObject.transform.localScale.x <= destroyThreshold) {
+				Destroy (gameObject);
+			}
 		}
+	}
+
+	void ReduceResistance() {
+		currentResistance = Mathf.Clamp(currentResistance - meltAmout, 0, currentResistance);
 	}
 }
