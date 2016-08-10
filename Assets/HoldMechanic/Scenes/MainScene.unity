@@ -709,7 +709,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468860, guid: 7fab8fa88266c234388be1b9037fbea1, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 457768, guid: 7fab8fa88266c234388be1b9037fbea1, type: 2}
       propertyPath: m_LocalPosition.x
