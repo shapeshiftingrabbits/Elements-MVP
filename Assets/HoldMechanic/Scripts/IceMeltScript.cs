@@ -10,7 +10,7 @@ public class IceMeltScript : MonoBehaviour {
 	private float meltAmout = 0.1f;
 	private float meltTick = 0.25f;
 	private float elapsedTime = 0f;
-	private float destroyThreshold = 0.10f;
+	private float destroyThreshold = 0.20f;
 
 	// Use this for initialization
 	void Start () {
