@@ -6,7 +6,7 @@ using System.Collections;
 public class PlayerOverheatScript : MonoBehaviour {
 	
 	public float currentOverheat = 0f;
-	private float overheatLimit = 100f;
+	public float overheatLimit = 100f;
 	private float overheatIncreaseSpeed = 50f;
 	private float overheatDecreaseSpeed = 50f;
 
