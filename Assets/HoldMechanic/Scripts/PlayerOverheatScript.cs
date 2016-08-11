@@ -24,7 +24,7 @@ public class PlayerOverheatScript : MonoBehaviour {
 		if (elementControllerScript.currentElement == PlayerElementControllerScript.Element.Fire) {
 			IncreaseOverheat (Time.deltaTime);
 		} else if (elementControllerScript.currentElement == PlayerElementControllerScript.Element.Water) {
-			currentOverheat = 0f;
+			DecreaseOverheat (Time.deltaTime * 3);
 		}
 		else {
 			DecreaseOverheat (Time.deltaTime);
