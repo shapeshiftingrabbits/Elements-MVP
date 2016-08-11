@@ -41,12 +41,6 @@ public class PlayerOverheatScript : MonoBehaviour {
 	}
 
 	void DecreaseOverheat (float multiplier) {
-		if (currentOverheat >= 0f) {
-			currentOverheat -= overheatDecreaseSpeed * multiplier;
-		}
-
-		if (currentOverheat < 0f) {
-			currentOverheat = 0f;
-		}
+		currentOverheat = Mathf.Clamp (currentOverheat - (overheatDecreaseSpeed * multiplier), 0, currentOverheat);
 	}
 }
