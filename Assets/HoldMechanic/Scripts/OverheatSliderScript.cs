@@ -4,13 +4,11 @@ using UnityEngine.UI;
 
 public class OverheatSliderScript : MonoBehaviour {
 
-	private GameObject player;
+	public GameObject player;
 	private PlayerOverheatScript playerOverheatScript;
 	private Slider overheatSlider;
 
 	void Start () {
-		player = GameObject.Find ("Player(Clone)");
-
 		playerOverheatScript = player.GetComponent<PlayerOverheatScript> ();
 		overheatSlider = gameObject.GetComponent<Slider> ();
 

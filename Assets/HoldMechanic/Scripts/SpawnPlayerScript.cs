@@ -4,11 +4,12 @@ using System.Collections;
 public class SpawnPlayerScript : MonoBehaviour {
 
 	public GameObject levelStart;
-	public GameObject playerPrefab;
+	public GameObject player;
 
 	// Use this for initialization
 	void Start () {
-		Instantiate (playerPrefab, playerSpawnPosition (), Quaternion.identity);
+		player.transform.position = playerSpawnPosition();
+		player.SetActive (true);
 	}
 
 	Vector3 playerSpawnPosition() {
