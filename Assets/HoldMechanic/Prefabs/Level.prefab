@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStart: {fileID: 162398}
-  playerPrefab: {fileID: 118972, guid: 377610639e6178b4aa8347d7cc941ce2, type: 2}
+  player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
