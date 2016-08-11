@@ -8,7 +8,8 @@ public class PlayerOverheatScript : MonoBehaviour {
 	public float currentOverheat = 0f;
 	public float overheatLimit = 100f;
 	private float overheatIncreaseSpeed = 80f;
-	private float overheatDecreaseSpeed = 20f;
+	private float overheatNormalDecreaseSpeed = 20f;
+	private float overheatWaterDecreaseSpeed = 60f;
 
 	private PlayerControllerScript playerControllerScript;
 	private PlayerElementControllerScript elementControllerScript;
@@ -23,10 +24,7 @@ public class PlayerOverheatScript : MonoBehaviour {
 	void Update () {
 		if (elementControllerScript.currentElement == PlayerElementControllerScript.Element.Fire) {
 			IncreaseOverheat (Time.deltaTime);
-		} else if (elementControllerScript.currentElement == PlayerElementControllerScript.Element.Water) {
-			DecreaseOverheat (Time.deltaTime * 3);
-		}
-		else {
+		} else {
 			DecreaseOverheat (Time.deltaTime);
 		}
 
@@ -41,6 +39,14 @@ public class PlayerOverheatScript : MonoBehaviour {
 	}
 
 	void DecreaseOverheat (float multiplier) {
-		currentOverheat = Mathf.Clamp (currentOverheat - (overheatDecreaseSpeed * multiplier), 0, currentOverheat);
+		currentOverheat = Mathf.Clamp (currentOverheat - (OverheatDecreaseSpeed() * multiplier), 0, currentOverheat);
+	}
+
+	float OverheatDecreaseSpeed () {
+		if (elementControllerScript.currentElement == PlayerElementControllerScript.Element.Water) {
+			return overheatWaterDecreaseSpeed;
+		}
+		
+		return overheatNormalDecreaseSpeed;
 	}
 }
