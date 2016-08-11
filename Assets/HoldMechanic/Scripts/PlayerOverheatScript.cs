@@ -7,8 +7,8 @@ public class PlayerOverheatScript : MonoBehaviour {
 	
 	public float currentOverheat = 0f;
 	public float overheatLimit = 100f;
-	private float overheatIncreaseSpeed = 50f;
-	private float overheatDecreaseSpeed = 50f;
+	private float overheatIncreaseSpeed = 80f;
+	private float overheatDecreaseSpeed = 20f;
 
 	private PlayerControllerScript playerControllerScript;
 	private PlayerElementControllerScript elementControllerScript;
